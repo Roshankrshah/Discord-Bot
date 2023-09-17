@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
@@ -17,6 +18,9 @@ client.on('messageCreate', message => {
     }
 });
 
-client.login(
-    "MTE1Mjg0NTUzNjc5NDI2NzcwMA.G0eIuU.Aee7oPwChsCJclAdoflPMYb8ss1jeRKaYOwixM"
-);
+client.on('interactionCreate',interaction =>{
+    console.log(interaction);
+    interaction.reply('Pong!');
+})
+
+client.login(process.env.TOKEN);
